@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario - Tan Biónica</title>
+  <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+ <div class="main">
+    <header>
+      <h1>Formulario de participación</h1>
+    </header>
+
+    <nav>
+     <button class="menu-toggle" aria-label="Abrir menú">
+  <img src="burger-bar.png" alt="Menú" width="30">
+</button>
+
+    <ul>
+        <li>
+        <a href="index.html">Home</a>
+        <ul class="submenu">
+       <li><a href="index.html#bio">Biografía</a></li>
+      <li><a href="index.html#Generomusical">Género musical</a></li>
+      <li><a href="index.html#Integrantes">Integrantes</a></li>
+      <li><a href="index.html#Premios">Premios</a></li>
+      <li><a href="index.html#Giras">Giras</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="discografia.html">Discografía</a>
+        <ul class="submenu">
+          <li><a href="discografia.html#disco1">Canciones del huracán</a></li>
+          <li><a href="discografia.html#disco2">Huracán / Wonderful noches</a></li>
+          <li><a href="discografia.html#disco3">Obsesionario</a></li>
+          <li><a href="discografia.html#disco4">Destinología</a></li>
+          <li><a href="discografia.html#disco5">Hola mundo</a></li>
+        </ul>
+      </li>
+       <li><a href="formulario.html">Formulario</a></li>
+    </ul>
+  </nav>
+  <main>
+<section>
+  <h2>Participá por entradas para Tan Biónica</h2>
+  <p>Completá el siguiente formulario para participar del sorteo de entradas para el show de "La Última Noche Mágica".</p>
+
+  <form id="miFormulario">
+    <!-- Datos personales/text -->
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="apellido">Apellido:</label><br>
+    <input type="text" id="apellido" name="apellido" required><br><br>
+
+    <label for="email">Correo electrónico:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad" name="edad" min="0" required><br><br>
+
+    <!-- Archivo -->
+    <label for="archivo">Subí una foto, video o carta mostrando tu fanatismo:</label><br>
+    <input type="file" id="archivo" name="archivo" accept="image/*,video/*,.txt,.pdf" required><br><br>
+
+    <!-- Intereses culturales/checkbox -->
+    <fieldset>
+      <legend>¿Qué te interesa?</legend>
+      <input type="checkbox" id="musica" name="intereses" value="Música">
+      <label for="musica">Música</label><br>
+
+      <input type="checkbox" id="teatro" name="intereses" value="Teatro">
+      <label for="teatro">Teatro</label><br>
+
+      <input type="checkbox" id="danza" name="intereses" value="Danza">
+      <label for="danza">Danza</label><br>
+
+      <input type="checkbox" id="cine" name="intereses" value="Cine">
+      <label for="cine">Cine</label><br>
+    </fieldset><br>
+
+    <!-- Preferencias sobre Tan Biónica/ checkbox -->
+    <fieldset>
+      <legend>¿Qué es lo que más te gusta de Tan Biónica?</legend>
+      <input type="checkbox" id="letras" name="gustos" value="Letras">
+      <label for="letras">Las letras de sus canciones</label><br>
+
+      <input type="checkbox" id="melodias" name="gustos" value="Melodías">
+      <label for="melodias">Las melodías</label><br>
+
+      <input type="checkbox" id="vivo" name="gustos" value="En vivo">
+      <label for="vivo">Las presentaciones en vivo</label><br>
+
+      <input type="checkbox" id="chano" name="gustos" value="Chano">
+      <label for="chano">El estilo de Chano</label><br>
+
+      <input type="checkbox" id="videoclips" name="gustos" value="Videoclips">
+      <label for="videoclips">Los videoclips</label><br>
+    </fieldset><br>
+
+    <!-- Comentario adicional -->
+    <label for="comentarios">Contanos algo sobre tu fanatismo:</label><br>
+    <textarea id="comentarios" name="comentarios" rows="4" cols="40" placeholder="¿Desde cuándo sos fan? ¿Cuál es tu canción favorita?"></textarea><br><br>
+
+    <!-- Newsletter -->
+    <label>¿Querés recibir novedades por mail?</label><br>
+    <input type="radio" id="si" name="novedades" value="Sí" required>
+    <label for="si">Sí</label><br>
+    <input type="radio" id="no" name="novedades" value="No">
+    <label for="no">No</label><br><br>
+
+    <input type="submit" value="Enviar formulario">
+  </form>
+</section>
+</main>
+
+
+    <footer>
+      <p>Ernestina Splendiani – Maquetado y Desarrollo Web – Prof. Mabel García (<abbr title="Trabajo Práctico">TP</abbr> final cuatrimestre 2025)</p>
+    </footer>
+  </div>
+
+  <script>
+    //Redirige a gracias.html 
+    document.getElementById("miFormulario").addEventListener("submit", function(event) {
+      event.preventDefault();
+      window.location.href = "gracias.html";
+    });
+  </script>
+<script>
+  //Toggle menú principal
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('nav > ul');
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+
+  //Toggle submenús en móvil
+  const submenuToggles = document.querySelectorAll('nav a.toggle-submenu');
+  submenuToggles.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const li = link.parentElement;
+      li.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
